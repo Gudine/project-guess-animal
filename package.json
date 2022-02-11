@@ -1,0 +1,23 @@
+{
+  "name": "project-guess-animal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedro-Fideles/project-guess-animal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pedro-Fideles/project-guess-animal/issues"
+  },
+  "homepage": "https://github.com/Pedro-Fideles/project-guess-animal#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
