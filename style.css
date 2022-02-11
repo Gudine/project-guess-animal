@@ -46,9 +46,32 @@
   font-size: 1.9rem;
   font-family: 'Architects Daughter', cursive;
   font-weight: 700;
-  color:rgb(29, 63, 29)
+  color:rgb(29, 63, 29);
 }
 
 .start:hover {
-  background-color:rgba(89, 160, 89, 0.7)
+  background-color:rgba(89, 160, 89, 0.7);
+}
+
+.game-container {
+  font-size: 3rem;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 40px;
+  margin-top: 100px;
+  width: 70vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px double green;
+}
+
+.game-main-img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.game-list {
+  list-style-position: inside;
 }
