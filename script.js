@@ -50,12 +50,14 @@ const createGameHints = (data) => {
 }
 
 const getHint = (hints) => {
+  const olHint = document.querySelector('.game-list-hint');
   const random = Math.floor(Math.random() * hints.length);
   if (hints.length === 0) {
-    console.log('sem mais dicas, camarada!!');
+    const hintButton = document.querySelectorAll('.game-button')[1];
+    hintButton.disabled = true;
+    olHint.appendChild(createGameElement('li', 'game-hint-item', 'Sem mais dicas, camarada!'));
   } else {
-    console.log(hints[random])
-    hints.splice(random, 1);
+    olHint.appendChild(createGameElement('li', 'game-hint-item', hints.splice(random, 1)));
   }
 }
 
@@ -89,7 +91,7 @@ const createGameContainer = (data) => {
   gameContainer.appendChild(createGameElement('span', 'game-name-animal', json.name));
   gameContainer.appendChild(createGameImage(json.image_link));
   gameContainer.appendChild(createAnswerSection());
-  gameContainer.appendChild(createGameElement('ol', 'game-list'));
+  gameContainer.appendChild(createGameElement('ol', 'game-list-hint'));
   gameContainer.appendChild(createGameElement('span', 'game-over-message'));
 
   principal.appendChild(gameContainer);
