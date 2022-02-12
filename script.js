@@ -56,7 +56,6 @@ const getHint = (hints) => {
   } else {
     console.log(hints[random])
     hints.splice(random, 1);
-    console.log(hints);
   }
 }
 
