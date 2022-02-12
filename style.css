@@ -62,9 +62,13 @@
   height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   border: 5px double green;
+}
+
+.game-name-animal {
+  /* display: none; */
 }
 
 .game-main-img {
