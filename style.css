@@ -71,11 +71,25 @@
   display: none;
 }
 
-.game-main-img {
-  max-width: 50%;
-  max-height: 50%;
+.container-image-hint {
+  display: flex;
+  width: 80%;
+  height: 55%;
+  justify-content: space-between;
 }
 
-.game-list {
+.game-main-img {
+  max-width: 48%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.game-list-hint {
+  background-color: rgba(89, 160, 89, 0.7);
   list-style-position: inside;
+  width: 50%;
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
 }
