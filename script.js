@@ -73,11 +73,16 @@ const createAnswerSection = () => {
   return section;
 }
 
-const createGameImage = (image) => {
+const createMegaSection = (image) => {
+  const megaSection = createGameElement('section', 'container-image-hint');
+  const olHints = createGameElement('ol', 'game-list-hint');
   const img = document.createElement('img');
   img.src = image;
   img.className = 'game-main-img';
-  return img;
+
+  megaSection.appendChild(img);
+  megaSection.appendChild(olHints);
+  return megaSection;
 }
 
 const createGameContainer = (data) => {
@@ -89,9 +94,8 @@ const createGameContainer = (data) => {
   gameContainer.className = 'game-container';
 
   gameContainer.appendChild(createGameElement('span', 'game-name-animal', json.name));
-  gameContainer.appendChild(createGameImage(json.image_link));
+  gameContainer.appendChild(createMegaSection(json.image_link));
   gameContainer.appendChild(createAnswerSection());
-  gameContainer.appendChild(createGameElement('ol', 'game-list-hint'));
   gameContainer.appendChild(createGameElement('span', 'game-over-message'));
 
   principal.appendChild(gameContainer);
@@ -100,7 +104,7 @@ const createGameContainer = (data) => {
 const startGame = async () => {
   const data = await fetchAnimal();
   createGameContainer(data);
-} 
+}
 
 window.onload = () => {
   buttonStart.addEventListener('click', startGame);
