@@ -16,20 +16,26 @@ const createGameElement = (element, className, text = null, callbackListener) =>
 
 const tryToGuess = () => {
   const attempt = document.querySelector('.game-input').value;
-  const correctName = document.querySelector('.game-name-animal').innerText;
   const message = document.querySelector('.game-over-message');
+  const animalName = document.querySelector('.game-name-animal');
 
-  if (attempt === correctName) {
+  if (attempt.toLowerCase() === json.name.toLowerCase()) {
     message.style.color = 'green';
     message.innerText = 'You win!!';
+    animalName.innerText = json.name;
   } else {
     const up = document.querySelector('.game-attempts');
-    up.innerText = parseInt(up.innerText) - 1;
-    if (up.innerText === '0') {
-      const buttons = document.querySelectorAll('.game-button');
-      buttons.forEach((button) => button.disabled = true);
-      message.style.color = 'red';
-      message.innerText = 'You lose!!';
+    const heart = [...up.querySelectorAll('.full-heart')].slice(-1)[0];
+    if (heart) {
+      heart.src = 'img/heart-empty.png';
+      heart.className = 'empty-heart';
+      if (!up.querySelector('.full-heart')) {
+        const buttons = document.querySelectorAll('.game-button');
+        buttons.forEach((button) => button.disabled = true);
+        message.style.color = 'red';
+        message.innerText = 'You lose!!';
+        animalName.innerText = json.name;
+      }
     }
   }
 }
@@ -61,14 +67,32 @@ const getHint = (hints) => {
   }
 }
 
+const createHeart = (src) => {
+  const img = document.createElement('img');
+  img.className = 'full-heart';
+  img.src = src;
+  return img
+}
+
+const createHeartsSection = () => {
+  const section = createGameElement('section', 'game-attempts');
+  section.appendChild(createHeart('img/heart.png'));
+  section.appendChild(createHeart('img/heart.png'));
+  section.appendChild(createHeart('img/heart.png'));
+  return section;
+}
+
 const createAnswerSection = () => {
   const section = document.createElement('section');
   const hints = createGameHints(json);
 
-  section.appendChild(createGameElement('span', 'game-attempts', '3'));
+  section.appendChild(createHeartsSection());
   section.appendChild(createGameElement('input', 'game-input'));
-  section.appendChild(createGameElement('button', 'game-button', 'Guess', tryToGuess));
-  section.appendChild(createGameElement('button', 'game-button', 'Hint', () => getHint(hints)));
+
+  const buttonsSection = createGameElement('section', 'buttons-section');
+  buttonsSection.appendChild(createGameElement('button', 'game-button', 'Guess', tryToGuess));
+  buttonsSection.appendChild(createGameElement('button', 'game-button', 'Hint', () => getHint(hints)));
+  section.appendChild(buttonsSection);
 
   return section;
 }
@@ -93,10 +117,10 @@ const createGameContainer = (data) => {
   const gameContainer = document.createElement('section');
   gameContainer.className = 'game-container';
 
-  gameContainer.appendChild(createGameElement('span', 'game-name-animal', json.name));
+  gameContainer.appendChild(createGameElement('section', 'game-name-animal'));
   gameContainer.appendChild(createMegaSection(json.image_link));
   gameContainer.appendChild(createAnswerSection());
-  gameContainer.appendChild(createGameElement('span', 'game-over-message'));
+  gameContainer.appendChild(createGameElement('section', 'game-over-message'));
 
   principal.appendChild(gameContainer);
 }

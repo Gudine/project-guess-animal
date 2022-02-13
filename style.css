@@ -68,28 +68,67 @@
 }
 
 .game-name-animal {
-  display: none;
+  height: 60px;
 }
 
 .container-image-hint {
   display: flex;
   width: 80%;
   height: 55%;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .game-main-img {
   max-width: 48%;
   max-height: 100%;
   border-radius: 10px;
+  margin-right: 20px;
 }
 
 .game-list-hint {
   background-color: rgba(89, 160, 89, 0.7);
   list-style-position: inside;
-  width: 50%;
+  width: 49%;
   height: 100%;
   font-size: 1.2rem;
   padding: 10px;
   border-radius: 10px;
 }
+
+.game-over-message {
+  height: 60px;
+}
+
+.buttons-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-button {
+  width: 48%;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: 2px solid rgba(89, 160, 89, 0.7);
+  background-color: rgba(89, 160, 89, 0.55);
+  font-size: 1.3rem;
+}
+
+.game-input {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 5px 0;
+  border: 2px solid rgba(89, 160, 89, 0.7);
+  background-color: rgba(89, 160, 89, 0.2);
+  font-size: 1.15rem;
+}
+
+.game-attempts {
+  display: flex;
+  justify-content: center;
+}
+
+.game-attempts > img {
+  margin: 0 5px;
+}
+
