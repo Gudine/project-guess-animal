@@ -59,13 +59,14 @@ const createGameHints = (data) => {
 const getHint = (hints) => {
   const olHint = document.querySelector('.game-list-hint');
   const random = Math.floor(Math.random() * hints.length);
+  
+  olHint.appendChild(createGameElement('li', 'game-hint-item', hints.splice(random, 1)));
+
   if (hints.length === 0) {
     const hintButton = document.querySelectorAll('.game-button')[1];
     hintButton.disabled = true;
-    olHint.appendChild(createGameElement('li', 'game-hint-item', 'Sem mais dicas, camarada!'));
-  } else {
-    olHint.appendChild(createGameElement('li', 'game-hint-item', hints.splice(random, 1)));
   }
+  
 }
 
 const createHeart = (src) => {
