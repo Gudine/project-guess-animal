@@ -18,8 +18,10 @@ const tryToGuess = () => {
   const attempt = document.querySelector('.game-input').value;
   const message = document.querySelector('.game-over-message');
   const animalName = document.querySelector('.game-name-animal');
+  const buttons = document.querySelectorAll('.game-button');
 
   if (attempt.toLowerCase() === json.name.toLowerCase()) {
+    buttons.forEach((button) => button.disabled = true);
     message.style.color = 'green';
     message.innerText = 'You win!!';
     animalName.innerText = json.name;
@@ -30,7 +32,6 @@ const tryToGuess = () => {
       heart.src = 'img/heart-empty.png';
       heart.className = 'empty-heart';
       if (!up.querySelector('.full-heart')) {
-        const buttons = document.querySelectorAll('.game-button');
         buttons.forEach((button) => button.disabled = true);
         message.style.color = 'red';
         message.innerText = 'You lose!!';
