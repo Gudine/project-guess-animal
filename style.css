@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .header {
   background-color: rgba(89, 160, 89, 0.7);
   height: 90px;
@@ -90,7 +94,7 @@
   list-style-position: inside;
   width: 49%;
   height: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding: 10px;
   border-radius: 10px;
 }
