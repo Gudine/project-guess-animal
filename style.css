@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: rgba(89, 160, 89, 0.7);
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 10px black;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  font-family: 'Architects Daughter', cursive;
+  z-index: 3;
+}
+
+.principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(img/background-image5.jpg);
+  background-size: 100% 100%;
+  height: 100vh;
+}
+
+.background-image {
+  width: 100%;
+  margin-top: -250px;
+  position: absolute;
+  z-index: 1;
+}
+
+.start {
+  background-color: rgba(89, 160, 89, 0.3);
+  border-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 30px 50px;
+  font-size: 1.9rem;
+  font-family: 'Architects Daughter', cursive;
+  font-weight: 700;
+  color:rgb(29, 63, 29);
+}
+
+.start:hover {
+  background-color:rgba(89, 160, 89, 0.7);
+}
+
+.game-container {
+  font-size: 3rem;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 40px;
+  margin-top: 100px;
+  width: 70vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 5px double green;
+}
+
+.game-name-animal {
+  height: 60px;
+}
+
+.container-image-hint {
+  display: flex;
+  width: 80%;
+  height: 55%;
+  justify-content: end;
+}
+
+.game-main-img {
+  max-width: 48%;
+  max-height: 100%;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.game-list-hint {
+  background-color: rgba(89, 160, 89, 0.7);
+  list-style-position: inside;
+  width: 49%;
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.game-over-message {
+  height: 60px;
+}
+
+.buttons-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-button {
+  width: 48%;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: 2px solid rgba(89, 160, 89, 0.7);
+  background-color: rgba(89, 160, 89, 0.55);
+  font-size: 1.3rem;
+}
+
+.game-input {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 5px 0;
+  border: 2px solid rgba(89, 160, 89, 0.7);
+  background-color: rgba(89, 160, 89, 0.2);
+  font-size: 1.15rem;
+}
+
+.game-attempts {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.game-attempts > img {
+  margin: 0 5px;
+}
+
