@@ -69,6 +69,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   border: 5px double green;
+  position:relative;
 }
 
 .game-name-animal {
@@ -137,3 +138,10 @@ body {
   margin: 0 5px;
 }
 
+.finish-game {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  right: 10px;
+  top: 10px;
+}
