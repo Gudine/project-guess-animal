@@ -15,12 +15,12 @@ const createGameElement = (element, className, text = null, callbackListener) =>
 }
 
 const tryToGuess = () => {
-  const attempt = document.querySelector('.game-input').value;
+  const attempt = document.querySelector('.game-input').value.toLowerCase().trim();
   const message = document.querySelector('.game-over-message');
   const animalName = document.querySelector('.game-name-animal');
   const buttons = document.querySelectorAll('.game-button');
 
-  if (attempt.toLowerCase() === json.name.toLowerCase()) {
+  if (json.name.toLowerCase().match(`\\b${attempt}\\b`) && attempt !== "") {
     disabledButton(buttons);
     message.style.color = 'green';
     message.innerText = 'You win!!';
