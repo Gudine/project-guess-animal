@@ -15,12 +15,12 @@ const createGameElement = (element, className, text = null, callbackListener) =>
 }
 
 const tryToGuess = () => {
-  const attempt = document.querySelector('.game-input').value;
+  const attempt = document.querySelector('.game-input').value.toLowerCase().trim();
   const message = document.querySelector('.game-over-message');
   const animalName = document.querySelector('.game-name-animal');
   const buttons = document.querySelectorAll('.game-button');
 
-  if (attempt.toLowerCase() === json.name.toLowerCase()) {
+  if (json.name.toLowerCase().match(`\\b${attempt}\\b`) && attempt !== "") {
     disabledButton(buttons);
     message.style.color = 'green';
     message.innerText = 'You win!!';
@@ -69,18 +69,18 @@ const getHint = (hints) => {
   
 }
 
-const createHeart = (src) => {
+const createGameImage = (src, className) => {
   const img = document.createElement('img');
-  img.className = 'full-heart';
+  img.className = className;
   img.src = src;
   return img
 }
 
 const createHeartsSection = () => {
   const section = createGameElement('section', 'game-attempts');
-  section.appendChild(createHeart('img/heart.png'));
-  section.appendChild(createHeart('img/heart.png'));
-  section.appendChild(createHeart('img/heart.png'));
+  section.appendChild(createGameImage('img/heart.png', 'full-heart'));
+  section.appendChild(createGameImage('img/heart.png', 'full-heart'));
+  section.appendChild(createGameImage('img/heart.png', 'full-heart'));
   return section;
 }
 
@@ -111,6 +111,10 @@ const createMegaSection = (image) => {
   return megaSection;
 }
 
+const finishGame = () => {
+  window.location.reload();
+}
+
 const createGameContainer = (data) => {
   buttonStart.remove();
   const principal = document.querySelector('.principal');
@@ -123,7 +127,10 @@ const createGameContainer = (data) => {
   gameContainer.appendChild(createMegaSection(json.image_link));
   gameContainer.appendChild(createAnswerSection());
   gameContainer.appendChild(createGameElement('section', 'game-over-message'));
-
+  const imgX = createGameImage('img/x.png', 'finish-game');
+  imgX.addEventListener('click', finishGame);
+  gameContainer.appendChild(imgX);
+  
   principal.appendChild(gameContainer);
 }
 
